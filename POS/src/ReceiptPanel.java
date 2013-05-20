@@ -1,4 +1,5 @@
 import javax.swing.*;
+
 import java.awt.*;
 import java.io.*;
 import java.sql.Timestamp;
@@ -14,22 +15,27 @@ public class ReceiptPanel extends JPanel {
 	private int[] counts = new int[20];
 	private int index=0;
 	private static String timeStamp;
+	private DefaultListModel<String> model = new DefaultListModel<String>();
+	private JList<String> list = new JList<String>(model);
 
 	public ReceiptPanel(){
 	//	checkCount();
 		this.setLayout(new GridLayout(0,1));
+		this.add(list);
 		this.add(receipt);
-		
 	}
 	public void addItem(String name, double price){
-		listofItems = listofItems + "\n" + name + price;
+		//listofItems = listofItems + "\n" + name + price;
 		total += price;
-		receipt.setText(listofItems + "\n" + total);
-		setNumofLines(getNumofLines() + 1);
+		receipt.setText("" + total);
+		model.addElement( name + " " + price);
+		//setNumofLines(getNumofLines() + 1);
+	     
 		
 	}
-	public String getListofItems() {
-		return listofItems;
+	public int getNumOfItems() {
+		int numberOfItems = model.getSize();
+		return numberOfItems;
 	}
 	public void setListofItems(String listofItems) {
 		this.listofItems = listofItems;
@@ -61,19 +67,20 @@ public class ReceiptPanel extends JPanel {
 		PrintWriter otherOutput = null;
 		try{
 			outputStream = new PrintWriter(new FileOutputStream (fileName));
-			otherOutput = new PrintWriter(new FileOutputStream("NumOfReceipts.txt"));
+			otherOutput = new PrintWriter(new FileOutputStream("NumOfReceipts.txt", true));
 			
 		}catch(FileNotFoundException e){
 			System.exit(0);
 		}
-		outputStream.println(timeStamp + "\n");
-		outputStream.println(listofItems);
+		//outputStream.println(timeStamp + "\n");
+		outputStream.println(list);
 		outputStream.close();
 		otherOutput.println(timeStamp);
 		otherOutput.close();
 		
 	}
 	public void newReceipt(){
+	model.clear();
 	receipt.setText("");
 	total=0.0;
 	listofItems = "";

@@ -6,7 +6,8 @@ import java.awt.event.*;
 public class Systems extends JPanel implements ActionListener {
 private JTextArea display = new JTextArea();
 private JTextField input = new JTextField("Add a Category");
-
+private DefaultListModel<String> model = new DefaultListModel<String>();
+private JList<String> list = new JList<String>();
 private JButton backButton = new JButton("Back");
 
 	public Systems(){

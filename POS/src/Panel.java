@@ -12,8 +12,11 @@ public class Panel extends JPanel implements ActionListener {
     private  ReceiptPanel receipt = new ReceiptPanel();
     private Item choice;
     private JPanel itemPanel = new JPanel();
+    private DefaultListModel<String> model = new DefaultListModel<String>();
+    private JList<String> list = new JList<String>();
     private JButton systemB = new JButton("System");
     private JButton logout = new JButton("Log Out");
+    
     private static int activeIndex;
     private static boolean systemAccess = false;
     
@@ -64,8 +67,7 @@ public class Panel extends JPanel implements ActionListener {
         	
         }
         else if(action.equals("Check Out")){
-        	if(receipt.getListofItems().equals("")){
-        	}else{
+        	if(receipt.getNumOfItems()>0){
         		receipt.saveReceipt();
     		    receipt.newReceipt();
         		ReceiptPanel.findTimeStamp();
