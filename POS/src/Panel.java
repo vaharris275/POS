@@ -26,10 +26,9 @@ public class Panel extends JPanel implements ActionListener {
 	   checkout.addActionListener(this);
 	   add(checkout);
 	   logout.addActionListener(this);
-	   add(logout);
+	  this.add(receipt);
 	   this.add(clearB);
-	   this.add(receipt);
-	 
+	  add(logout);
 	   
 	   if(systemAccess){
 		   this.add(systemB);
@@ -65,9 +64,12 @@ public class Panel extends JPanel implements ActionListener {
         	
         }
         else if(action.equals("Check Out")){
-        	if(receipt.getListofItems()!= null){
-    		receipt.saveReceipt();
-    		receipt.newReceipt();
+        	if(receipt.getListofItems().equals("")){
+        	}else{
+        		receipt.saveReceipt();
+    		    receipt.newReceipt();
+        		ReceiptPanel.findTimeStamp();
+        		System.out.println(ReceiptPanel.getTimeStamp());
         	}
     	}
     		

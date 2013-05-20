@@ -12,7 +12,6 @@ import javax.swing.JPasswordField;
 public class Login extends JPanel implements ActionListener{
 	private JPasswordField pass;
 	private JButton okaybutton = new JButton("OK");
-	private JButton logout = new JButton("Log Out");
 	private JButton cheat = new JButton("Cheat");
 	private static boolean systemAccess = false;
 
@@ -51,8 +50,6 @@ public class Login extends JPanel implements ActionListener{
 			temp.removeAll();
 			Panel panel = new Panel();
 			temp.add(panel);
-			logout.addActionListener(this);
-			temp.add(logout);
 			Main.setSystemPanel(temp);
 		}
 		else

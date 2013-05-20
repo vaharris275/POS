@@ -61,7 +61,7 @@ public class ReceiptPanel extends JPanel {
 		PrintWriter otherOutput = null;
 		try{
 			outputStream = new PrintWriter(new FileOutputStream (fileName));
-			otherOutput = new PrintWriter(new FileOutputStream("NumOfReceipts.txt",true));
+			otherOutput = new PrintWriter(new FileOutputStream("NumOfReceipts.txt"));
 			
 		}catch(FileNotFoundException e){
 			System.exit(0);
@@ -80,9 +80,18 @@ public class ReceiptPanel extends JPanel {
 	numofLines = 1;
 	}
 	
+	public static String getTimeStamp() {
+		return timeStamp;
+	}
+	public static void setTimeStamp(String timeStamp) {
+		ReceiptPanel.timeStamp = timeStamp;
+	}
 	public static void findTimeStamp(){
 		java.util.Date date = new java.util.Date();
-		timeStamp = new Timestamp(date.getTime()).toString();
+		Timestamp time = new Timestamp(date.getTime());
+		String timest = time.toString();
+		timest = timest.replaceAll(" ", ".");
+		timeStamp = timest.replaceAll(":", "-");
 		
 	}
 }
