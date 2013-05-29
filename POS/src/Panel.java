@@ -13,7 +13,7 @@ public class Panel extends JPanel implements ActionListener {
     private Item choice;
     private JPanel itemPanel = new JPanel();
     private DefaultListModel<String> model = new DefaultListModel<String>();
-    private JList<String> list = new JList<String>();
+    private JList<String> list = new JList<String>(model);
     private JButton systemB = new JButton("System");
     private JButton logout = new JButton("Log Out");
     
@@ -22,6 +22,7 @@ public class Panel extends JPanel implements ActionListener {
     
     
 	public Panel(){
+	
 	  initializeCategories();
 	   this.add(itemPanel);
 	   itemPanel.setBackground(Color.BLUE);

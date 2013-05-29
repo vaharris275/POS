@@ -33,6 +33,7 @@ public class ReceiptPanel extends JPanel {
 	     
 		
 	}
+
 	public int getNumOfItems() {
 		int numberOfItems = model.getSize();
 		return numberOfItems;

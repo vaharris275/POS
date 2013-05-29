@@ -58,7 +58,7 @@ public class Login extends JPanel implements ActionListener{
 	public boolean isPasswordCorrect(String password){
 		String fileName = "POS.txt";
 		Scanner inputStream= null;
-		System.out.println("password" + password);
+		//System.out.println("password" + password);
 		boolean access=false;
 		try{
 			inputStream = new Scanner(new File(fileName));

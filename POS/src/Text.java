@@ -45,7 +45,14 @@ public class Text {
 		
 		
 		String fileName = "Category.dat";
-	
+	ObjectOutputStream ops;
+	try{
+		ops = new ObjectOutputStream(new FileOutputStream(fileName));
+		ops.writeObject(cats);
+	} catch(IOException e1){
+		System.out.println("Error");
+	}
+
 		
 		
 		ObjectInputStream ips;

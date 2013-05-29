@@ -36,10 +36,10 @@ public class ArrayListCats implements Serializable{
 				 inputcat = (ArrayListCats)ips.readObject();
 				 ips.close();
 			} catch(IOException e1){
-				System.out.println("Error");
+				System.out.println("Error h");
 			}
 			catch(ClassNotFoundException e2){
-				System.out.println("Error");
+				System.out.println("Error i");
 			}
 			
 			return inputcat;

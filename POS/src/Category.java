@@ -15,6 +15,10 @@ public class Category implements Serializable{
 	public Category(String name){
 		this.name = name;
 	}
+	public int getSize(){
+		int size = item.size();
+		return size;
+	}
 	
 	public void addItem(Item product){
 		item.add(product);
@@ -24,6 +28,10 @@ public class Category implements Serializable{
 	}
 	public ArrayList<Item> getItem() {
 		return item;
+	}
+	public Item findItem(int index){
+		Item thing = item.get(index);
+		return thing;
 	}
 
 	public void setItem(ArrayList<Item> item) {
